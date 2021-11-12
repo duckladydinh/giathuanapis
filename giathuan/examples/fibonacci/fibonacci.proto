@@ -11,7 +11,7 @@ option java_outer_classname = "FibonacciProtos";
 // A sample FibonacciService.
 service FibonacciService {
     // Get a Fibonacci number specified by its index.
-    rpc GetFibonacciService(GetFibonacciRequest) returns (Fibonacci);
+    rpc GetFibonacci(GetFibonacciRequest) returns (Fibonacci);
 }
 
 message GetFibonacciRequest {
