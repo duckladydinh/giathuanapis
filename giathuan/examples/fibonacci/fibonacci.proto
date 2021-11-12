@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package giathuan.examples.fibonacci;
+
+option java_multiple_files = true;
+option java_package = "com.giathuan.examples.fibonacci";
+option java_outer_classname = "FibonacciProtos";
+
+// A sample FibonacciService.
+service FibonacciService {
+    // Get a Fibonacci number specified by its index.
+    rpc GetFibonacciService(GetFibonacciRequest) returns (Fibonacci);
+}
+
+message GetFibonacciRequest {
+    // A zero-based index pointing to the wanted Fibonacci number.
+    int32 index = 1;
+}
+
+message Fibonacci {
+    // A zero-based index pointing to the wanted Fibonacci number.
+    int32 index = 1;
+    // The Fibonacci value corresponding to the related index.
+    int64 value = 2;    
+}

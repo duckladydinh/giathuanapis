@@ -1,0 +1,8 @@
+version: v1
+name: buf.build/duckladydinh/giathuanapis
+lint:
+  use:
+  - DEFAULT
+breaking:
+  use:
+  - FILE
