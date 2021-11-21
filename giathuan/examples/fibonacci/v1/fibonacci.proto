@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package giathuan.examples.fibonacci.v1;
+
+import "google/api/field_behavior.proto";
+import "google/api/annotations.proto";
+
+option java_multiple_files = true;
+option java_package = "com.giathuan.examples.fibonacci.v1";
+option java_outer_classname = "FibonacciProtos";
+
+// A sample FibonacciService.
+service FibonacciService {
+  // Get a Fibonacci number specified by its index.
+  rpc GetFibonacci(GetFibonacciRequest) returns (GetFibonacciResponse) {
+    option (google.api.http) = {
+      get : "/v1/fibonacci/{index}"
+    };
+  };
+}
+
+message GetFibonacciRequest {
+  // A zero-based index pointing to the wanted Fibonacci number.
+  int32 index = 1 [ (google.api.field_behavior) = REQUIRED ];
+}
+
+message GetFibonacciResponse {
+  // A zero-based index pointing to the wanted Fibonacci number.
+  int32 index = 1;
+  // The Fibonacci value corresponding to the related index.
+  int64 value = 2;
+}
