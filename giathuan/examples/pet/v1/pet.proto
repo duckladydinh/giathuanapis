@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package giathuan.examples.pet.v1;
+
+option go_package = "github.com/duckladydinh/giathuanapis/giathuan/examples/pet/v1;petpb";
+
+option java_multiple_files = true;
+option java_package = "com.giathuan.examples.pet.v1";
+option java_outer_classname = "PetProtos";
+
+message Zoo {
+  // The name of the zoo.
+  string name = 1;
+  // The address of the zoo.
+  string address = 2;
+  // All the pets associated with the zoo.
+  repeated Pet pets = 3;
+}
+
+message Pet {
+  // Indivial name of the pet, like Doraemon (name), not Cat (race).
+  string name = 1;
+  // The race of the pet such as Dog, Cat...
+  string race = 2;
+  // The age number in years of the pet.
+  int32 age = 3;
+  // Information about the let's health.
+  HealthReport health_report = 4;
+}
+
+message HealthReport {
+  // The height measure of the pet.
+  Height height = 1;
+  // The weight measure of the pet.
+  Weight weight = 2;
+  // The overall healthy status of the pet.
+  State state = 3;
+  // All the diseases the pet current has.
+  repeated Disease diseases = 4;
+
+  enum State {
+    UNKNOWN = 0;
+    HEALTHY = 1;
+    SICK = 2;
+  }
+
+  message Height {
+    int32 value = 1;
+    Unit unit = 2;
+
+    enum Unit {
+      UNKNOWN = 0;
+      CENTEMETER = 1;
+      METER = 2;
+    }
+  }
+
+  message Weight {
+    int32 value = 1;
+    Unit unit = 2;
+
+    enum Unit {
+      UNKNOWN = 0;
+      GRAM = 1;
+      KILOGRAM = 2;
+      TON = 3;
+    }
+  }
+
+  message Disease {
+    string name = 1;
+
+    enum SEVERITY {
+      UNKNOWN = 0;
+      DANGEROUS = 1;
+      NORMAL = 2;
+      LIGHT = 3;
+    }
+  }
+}
