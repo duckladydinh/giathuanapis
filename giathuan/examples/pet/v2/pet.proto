@@ -1,39 +1,39 @@
-syntax = "proto3";
+syntax = "proto2";
 
-package giathuan.examples.pet.v1;
+package giathuan.examples.pet.v2;
 
-option go_package = "github.com/duckladydinh/giathuanapis/giathuan/examples/pet/v1;petpb";
+option go_package = "github.com/duckladydinh/giathuanapis/giathuan/examples/pet/v2;petpb";
 option java_multiple_files = true;
 option java_outer_classname = "PetProtos";
-option java_package = "com.giathuan.examples.pet.v1";
+option java_package = "com.giathuan.examples.pet.v2";
 
 message Zoo {
   // The name of the zoo.
-  string name = 1;
+  optional string name = 1;
   // The address of the zoo.
-  string address = 2;
+  optional string address = 2;
   // All the pets associated with the zoo.
   repeated Pet pets = 3;
 }
 
 message Pet {
   // Indivial name of the pet, like Doraemon (name), not Cat (race).
-  string name = 1;
+  optional string name = 1;
   // The race of the pet such as Dog, Cat...
-  string race = 2;
+  optional string race = 2;
   // The age number in years of the pet.
-  int32 age = 3;
+  optional int32 age = 3;
   // Information about the let's health.
-  HealthReport health_report = 4;
+  optional HealthReport health_report = 4;
 }
 
 message HealthReport {
   // The height measure of the pet.
-  Height height = 1;
+  optional Height height = 1;
   // The weight measure of the pet.
-  Weight weight = 2;
+  optional Weight weight = 2;
   // The overall healthy status of the pet.
-  State state = 3;
+  optional State state = 3;
   // All the diseases the pet current has.
   repeated Disease diseases = 4;
 
@@ -44,8 +44,8 @@ message HealthReport {
   }
 
   message Height {
-    int32 value = 1;
-    Unit unit = 2;
+    optional int32 value = 1;
+    optional Unit unit = 2;
 
     enum Unit {
       UNKNOWN = 0;
@@ -55,8 +55,8 @@ message HealthReport {
   }
 
   message Weight {
-    int32 value = 1;
-    Unit unit = 2;
+    optional int32 value = 1;
+    optional Unit unit = 2;
 
     enum Unit {
       UNKNOWN = 0;
@@ -67,7 +67,7 @@ message HealthReport {
   }
 
   message Disease {
-    string name = 1;
+    optional string name = 1;
 
     enum SEVERITY {
       UNKNOWN = 0;
