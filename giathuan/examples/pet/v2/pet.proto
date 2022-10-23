@@ -25,6 +25,12 @@ message Pet {
   optional int32 age = 3;
   // Information about the let's health.
   optional HealthReport health_report = 4;
+
+  extensions 100 to 199;
+}
+
+extend Pet {
+  optional string note = 100;
 }
 
 message HealthReport {

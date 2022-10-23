@@ -18,7 +18,6 @@ service FibonacciService {
       get: "/v1/fibonacci/{index}"
     };
   }
-
 }
 
 message GetFibonacciRequest {
