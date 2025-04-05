@@ -1,6 +1,6 @@
 # Run:
-#  buf build
-version: v1
+#  rm buf.lock && buf dep update && buf build
+version: v2
 name: buf.build/duckladydinh/giathuanapis
 deps:
   - buf.build/googleapis/googleapis
